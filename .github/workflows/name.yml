@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Say Hello from Windows
-        run: echo "Hallo Jan 👋, dieser Workflow läuft gerade auf Windows!"
+        run: echo "Hallo Jan , dieser Workflow läuft gerade auf Windows!"
