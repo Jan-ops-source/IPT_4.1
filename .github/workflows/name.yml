@@ -1,19 +1,33 @@
-# This is a basic workflow to help you get started with Actions
+name: Build Vue Component
 
-name: name.yml
-
-# Controls when the workflow will run
-on: 
+on:
   push:
     branches:
-      - main
+      - main  # oder dein Branch-Name
 
 jobs:
-  run-on-windows:
-    runs-on: windows-latest   # WICHTIG: Windows-Umgebung
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
 
-      - name: Say Hello from Windows
-        run: echo "Hallo Jan , dieser Workflow läuft gerade auf Windows!"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Vue component
+        run: node build-vue.js
+
+      - name: Commit and push .vue file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/Component.vue
+          git commit -m "Build .vue file from HTML, CSS, TS"
+          git push
