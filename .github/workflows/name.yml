@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: name.yml
+
+# Controls when the workflow will run
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  run-on-windows:
+    runs-on: windows-latest   # WICHTIG: Windows-Umgebung
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Say Hello from Windows
+        run: echo "Hallo Jan , dieser Workflow läuft gerade auf Windows!"
