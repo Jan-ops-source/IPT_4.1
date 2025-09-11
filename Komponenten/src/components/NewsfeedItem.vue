@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-
+ 
       <div class="newsfeed__item">
         <div class="newsfeed__image">
           <img :src= "image" alt="">
