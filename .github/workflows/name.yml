@@ -28,16 +28,16 @@ jobs:
  
       - name: Install dependencies
         run: npm ci
-        working-directory: ./Komponenten
+        working-directory: ../../../Komponenten
  
       - name: Build project
         run: npm run build
-        working-directory: ./Komponenten
+        working-directory: ../../../Komponenten
  
       - name: Upload production-ready build files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./Komponenten/dist
+          path: ../../../Komponenten/dist
  
   deploy:
     runs-on: ubuntu-22.04
