@@ -5,7 +5,7 @@ defineProps({
   image :String,
   NumberOfWords :Number})
 </script>
- 
+  
 <template>
 
       <div class="newsfeed__item">
