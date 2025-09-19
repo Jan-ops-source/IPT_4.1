@@ -12,7 +12,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # Damit kann ich den Pages Link in Actions sehen
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -28,15 +28,17 @@ jobs:
 
       - name: Install packages
         run: npm ci
+        working-directory: ./Komponenten
 
       - name: Build project
         run: npm run build
+        working-directory: ./Komponenten
 
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./Komponenten/dist
 
 
       - name: Deploy to GitHub Pages
